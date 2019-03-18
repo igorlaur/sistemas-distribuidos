@@ -9,7 +9,7 @@ poderá acessar o OMDb.
 '''
 
 'coloque aqui a sua chave de acesso à api'
-api_key = ''
+api_key = '7e1e797'
 
 '''
 Antes de fazer qualquer função, vamos experimentar
@@ -40,7 +40,7 @@ Olhando para os resultados da consulta
 http://www.omdbapi.com/?s=star%20wars&apikey={SUA-CHAVE-VEM-AQUI},
 quantos filmes foram encontrados para o termo "star wars"?
 
-Resposta:
+Resposta: 9
 
 QUESTÃO 2
 Consultando a documentação em www.omdbapi.com, você
@@ -52,7 +52,7 @@ Como fazer isso?
 Se você fizer essa consulta, quantos filmes
 existem para a busca star wars?
 
-Resposta:
+Resposta: http://www.omdbapi.com/?apikey=[7e1e797]&s
 
 QUESTÃO 3:
 E se ao invés de filmes você quiser só jogos,
