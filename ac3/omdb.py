@@ -47,10 +47,16 @@ Consultando a documentação em www.omdbapi.com, você
 pode aprender a filtrar os resultados da sua busca,
 ficando apenas com filmes, eliminando jogos e séries.
 
+Resultado: 570 filmes
+http://www.omdbapi.com/?s=movies&page=57&apikey=7e1e797
+
 Como fazer isso?
 
 Se você fizer essa consulta, quantos filmes
 existem para a busca star wars?
+
+http://www.omdbapi.com/?s=star%20wars&page=45&apikey=7e1e797
+445 filmes
 
 Resposta: http://www.omdbapi.com/?apikey=[7e1e797]&s
 
@@ -58,7 +64,7 @@ QUESTÃO 3:
 E se ao invés de filmes você quiser só jogos,
 quantos existem?
 
-Resposta:
+Resposta: Nenhum pois só existem Filmes, episódios e séries
 
 '''
 
@@ -71,12 +77,12 @@ eu estou retornando o dicionário inteiro.
 '''
 
 def busca_por_id(film_id):
-    url = "http://www.omdbapi.com/?apikey={}&i={}".format(api_key, film_id)
+    url = "http://www.omdbapi.com/?apikey={7e1e797}&i={tt0269341}".format(api_key, film_id)
     retorno = req.get(url).json()
     return retorno
 
 def busca_por_texto(texto_buscar):
-    url = "http://www.omdbapi.com/?apikey={}&s={}".format(api_key, texto_buscar)
+    url = "http://www.omdbapi.com/?apikey={7e1e797}&s={play}".format(api_key, texto_buscar)
     retorno = req.get(url).json()
     return retorno
 
