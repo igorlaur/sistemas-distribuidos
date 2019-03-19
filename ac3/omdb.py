@@ -77,12 +77,12 @@ eu estou retornando o dicionário inteiro.
 '''
 
 def busca_por_id(film_id):
-    url = "http://www.omdbapi.com/?apikey={7e1e797}&i={tt0269341}".format(api_key, film_id)
+    url = "http://www.omdbapi.com/?apikey=7e1e797&i=tt0269341".format(api_key, film_id) # 7e1e797 - tt0269341
     retorno = req.get(url).json()
     return retorno
 
 def busca_por_texto(texto_buscar):
-    url = "http://www.omdbapi.com/?apikey={7e1e797}&s={play}".format(api_key, texto_buscar)
+    url = "http://www.omdbapi.com/?apikey=7e1e797&s=play".format(api_key, texto_buscar) # 7e1e797 - play
     retorno = req.get(url).json()
     return retorno
 
@@ -90,7 +90,7 @@ def busca_por_texto(texto_buscar):
 Experimente! chame d1=busca_por_texto('star wars') e examine o
 dicionário d1 retornado.
 '''
-
+    def busca_por_texto()
 '''
 Agora, faça uma função busca_qtd_total que retorna quantos
 itens (pode ser filme, jogo, série ou o que for) batem com
