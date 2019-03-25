@@ -40,7 +40,7 @@ Olhando para os resultados da consulta
 http://www.omdbapi.com/?s=star%20wars&apikey={SUA-CHAVE-VEM-AQUI},
 quantos filmes foram encontrados para o termo "star wars"?
 
-Resposta: 9
+Resposta: 440
 
 QUESTÃO 2
 Consultando a documentação em www.omdbapi.com, você
@@ -77,12 +77,12 @@ eu estou retornando o dicionário inteiro.
 '''
 
 def busca_por_id(film_id):
-    url = "http://www.omdbapi.com/?apikey=7e1e797&i=tt0269341".format(api_key, film_id) # 7e1e797 - tt0269341
+    url = "http://www.omdbapi.com/?apikey={}&i={}".format(api_key, film_id) # 7e1e797 - tt0269341
     retorno = req.get(url).json()
     return retorno
 
 def busca_por_texto(texto_buscar):
-    url = "http://www.omdbapi.com/?apikey=7e1e797&s=play".format(api_key, texto_buscar) # 7e1e797 - play
+    url = "http://www.omdbapi.com/?apikey={}&s={}".format(api_key, texto_buscar) # 7e1e797 - play
     retorno = req.get(url).json()
     return retorno
 
@@ -91,7 +91,7 @@ Experimente! chame d1=busca_por_texto('star wars') e examine o
 dicionário d1 retornado.
 '''
 def busca_por_texto(texto_buscar):
-    url = "http://www.omdapi.com/?s=star%20wars&apikey=7e1e797".format(api_key, texto_buscar)
+    url = "http://www.omdbapi.com/?s=star%20wars&apikey={}".format(api_key, texto_buscar)
     retorno = req.get(url).json()
     return retorno
 '''
@@ -100,21 +100,28 @@ itens (pode ser filme, jogo, série ou o que for) batem com
 uma determinada busca.
 '''
 def busca_qtd_total(texto_buscar):
-    pass
+    url = "http://www.omdbapi.com/?apikey={}&s={}".format(api_key, texto_buscar)
+    retorno = req.get(url).json
+    return retorno['totalResults']
 
 '''
 Faça uma função busca_qtd_filmes que retorna quantos
 filmes batem com uma determinada busca.
 '''
 def busca_qtd_filmes(texto_buscar):
-    pass
+    url = "http://www.omdbapi.com/?apikey={}".format(api_key, texto_buscar)
+    retorno = req.get(url).json
+    return retorno['totalResults']
 
 '''
 Faça uma função busca_qtd_jogos que retorna quantos
 jogos batem com uma determinada busca.
 '''
 def busca_qtd_jogos(texto_buscar):
-    pass
+    url = "http://www.omdbapi.com/?apikey={}".format(api_key, texto_buscar)
+    retorno = req.get(url).json
+    return retorno['totalResults']
+    
 
 '''
 Agora, vamos aprender a ver os detalhes de um filme.
@@ -136,14 +143,19 @@ Faça uma função nome_do_filme_por_id que recebe a id de
 um filme e retorna o seu nome.
 '''
 def nome_do_filme_por_id(id_filme):
-    pass
+    url = "http://www.omdbapi.com/?apikey={}".format(id_filme, texto_buscar)
+    retorno = req.get(url).json()
+    return retorno['Title']
+    
 
 '''
 Faça uma função ano_do_filme_por_id que recebe a id de
 um filme e retorna o seu ano de lançamento.
 '''
 def ano_do_filme_por_id(id_filme):
-    pass
+    url = "http://www.omdbapi.com/?apikey={}".format(id_filme, texto_buscar)
+    retorno = req.get(url).json()
+    return retorno['Year']   
 
 '''
 Peguemos vários dados de um filme de uma vez.
@@ -159,7 +171,14 @@ O dicionário deve ter as seguintes chaves:
 
 E os dados devem ser preenchidos baseado nos dados do site.
 '''
+class IdInvalida(Exception):
+    pass
+
 def dicionario_do_filme_por_id(id_filme):
+    url = "http://www.omdbapi.com?apikey={}".format(id_filme, texto_buscar)
+    retorno = req.get(url).json()
+    if retorno['Response'] == 'False':
+        raise IdInvalida()
     pass
 
 '''
