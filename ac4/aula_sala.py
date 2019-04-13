@@ -20,7 +20,7 @@ def novo_professor():
     database['PROFESSOR'].append(novo_professor)
     return jsonify(database['PROFESSOR'])
 
-@app.route('/professores', methods = ['REMOVE'])
+@app.route('/professores', methods = ['DELETE'])
 def delete_professor():
     delete_professor = request.delete_json()
     print(delete_professor)
